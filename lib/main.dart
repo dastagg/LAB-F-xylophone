@@ -12,48 +12,31 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$noteNumber.wav');
   }
 
+  Expanded buildKey({required Color color, required int sound}) {
+    return Expanded(
+      child: FlatButton(
+        color: color,
+        onPressed: () {playSound(sound); },
+        child: const Text(''),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              FlatButton(
-                color: Colors.red,
-                onPressed: () {playSound(1); },
-                child: const Text(''),
-              ),
-              FlatButton(
-                color: Colors.orange,
-                onPressed: () {playSound(2); },
-                child: const Text(''),
-              ),
-              FlatButton(
-                color: Colors.yellow,
-                onPressed: () {playSound(3); },
-                child: const Text(''),
-              ),
-              FlatButton(
-                color: Colors.green,
-                onPressed: () {playSound(4); },
-                child: const Text(''),
-              ),
-              FlatButton(
-                color: Colors.blue,
-                onPressed: () {playSound(5); },
-                child: const Text(''),
-              ),
-              FlatButton(
-                color: Colors.indigo,
-                onPressed: () {playSound(6); },
-                child: const Text(''),
-              ),
-              FlatButton(
-                color: Colors.purple,
-                onPressed: () {playSound(7); },
-                child: const Text(''),
-              ),
+              buildKey(color: Colors.red, sound: 1),
+              buildKey(color: Colors.orange, sound: 2),
+              buildKey(color: Colors.yellow, sound: 3),
+              buildKey(color: Colors.green, sound: 4),
+              buildKey(color: Colors.blue, sound: 5),
+              buildKey(color: Colors.indigo, sound: 6),
+              buildKey(color: Colors.purple, sound: 7),
             ],
           ),
         ),
