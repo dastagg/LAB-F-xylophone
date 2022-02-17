@@ -14,13 +14,33 @@ class XylophoneApp extends StatelessWidget {
 
   Expanded buildKey({required Color color, required int sound}) {
     return Expanded(
-      child: FlatButton(
-        color: color,
-        onPressed: () {playSound(sound); },
+      child: TextButton(
+        style: TextButton.styleFrom(
+          primary: color,
+          backgroundColor: color,
+        ),
+        onPressed: () {playSound(sound);},
         child: const Text(''),
       ),
     );
   }
+
+  // FlatButton(
+  // color: color,
+  // onPressed: () {playSound(sound); },
+  // child: const Text(''),
+  // ),
+  //
+  //
+  // TextButton(
+  // style: TextButton.styleFrom(
+  // primary: Colors.white,
+  // backgroundColor: Colors.blue,
+  // ),
+  // onPressed: () {playSound(sound);},
+  // child: Text(''),
+  // ),
+
 
   @override
   Widget build(BuildContext context) {
