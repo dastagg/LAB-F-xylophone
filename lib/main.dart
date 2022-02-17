@@ -8,9 +8,7 @@ class XylophoneApp extends StatelessWidget {
 
   static AudioCache player = AudioCache();
 
-  void playSound(int noteNumber) {
-    player.play('note$noteNumber.wav');
-  }
+  void playSound(int noteNumber) => player.play('note$noteNumber.wav');
 
   Expanded buildKey({required Color color, required int sound}) {
     return Expanded(
@@ -19,28 +17,11 @@ class XylophoneApp extends StatelessWidget {
           primary: color,
           backgroundColor: color,
         ),
-        onPressed: () {playSound(sound);},
+        onPressed: () => playSound(sound),
         child: const Text(''),
       ),
     );
   }
-
-  // FlatButton(
-  // color: color,
-  // onPressed: () {playSound(sound); },
-  // child: const Text(''),
-  // ),
-  //
-  //
-  // TextButton(
-  // style: TextButton.styleFrom(
-  // primary: Colors.white,
-  // backgroundColor: Colors.blue,
-  // ),
-  // onPressed: () {playSound(sound);},
-  // child: Text(''),
-  // ),
-
 
   @override
   Widget build(BuildContext context) {
